@@ -1,8 +1,40 @@
 <!doctype html>
-<html lang="en" ng-app="music">
-	<head>
-		<title>Musicians!</title>
-		<link rel="stylesheet" type="text/css" href="music.css">
-	</head>
+<html lang="en" ng-app="contacts">
+  <head>
+    <title>Contacts!</title>
+    <link rel="stylesheet" type="text/css" href="contacts.css">
+  </head>
+  <body>
+    <div ng-controller="ContactController">
+      <p>Press 'All' for a complete list of the musicians in our database.</p>
+      <button ng-click="all()">All</button>
+      <input type="text" ng-model="contacts" style="display:none">
+      
+      <table>
+        <tr ng-repeat="m in contacts">
+          <td>{{m.firstName}}</td>
+          <td>{{m.lastName}}</td>
+          <td>{{m.address}}</td>
+          <td>{{m.phoneNumber}}</td>
+          <td><button ng-click="$parent.remove(m)">Remove</button></td>
+        </tr>
+      </table>
 
+
+      <p>Enter the data for a person and press submit.</p>
+      <input type="text" ng-model="firstName" placeholder="First Name">
+      <input type="text" ng-model="lastName" placeholder="Last Name">
+      <input type="text" ng-model="address" placeholder="Address">
+      <input type="text" ng-model="phoneNumber" placeholder="Phone Number">
+      <button ng-disabled="!(firstName.length && lastName.length && address.length && phoneNumber.length)"
+              ng-click="add()">Add</button>
+      <button ng-disabled="!(firstName.length && lastName.length && address.length && phoneNumber.length)"
+              ng-click="update()">Update</button>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script 
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js">
+    </script>
+    <script src='app.js'></script>
+  </body>
 </html>
