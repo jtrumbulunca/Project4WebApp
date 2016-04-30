@@ -5,12 +5,18 @@
     <link rel="stylesheet" type="text/css" href="contacts.css">
   </head>
   <body>
-    <div ng-controller="ContactController">
-      <p>Press 'All' for a complete list of the musicians in our database.</p>
-      <button ng-click="all()">All</button>
-      <input type="text" ng-model="contacts" style="display:none">
-      
+    <div ng-controller="ContactController" style="overflow-x:auto;">
+      <h1>
+        Contacts
+      </h1>
+
       <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+        </tr>
         <tr ng-repeat="m in contacts">
           <td>{{m.firstName}}</td>
           <td>{{m.lastName}}</td>
@@ -20,7 +26,6 @@
         </tr>
       </table>
 
-
       <p>Enter the data for a person and press submit.</p>
       <input type="text" ng-model="firstName" placeholder="First Name">
       <input type="text" ng-model="lastName" placeholder="Last Name">
@@ -28,9 +33,18 @@
       <input type="text" ng-model="phoneNumber" placeholder="Phone Number">
       <button ng-disabled="!(firstName.length && lastName.length && address.length && phoneNumber.length)"
               ng-click="add()">Add</button>
-      <button ng-disabled="!(firstName.length && lastName.length && address.length && phoneNumber.length)"
-              ng-click="update()">Update</button>
+      <!--<button ng-disabled="!(firstName.length && lastName.length && address.length && phoneNumber.length)"
+              ng-click="update()">Update</button>-->
+
+      
+    
+      <p>Press 'All' for a complete list of your contacts.</p>
+      <button ng-click="all()">All</button>
+      <input type="text" ng-model="contacts" style="display:none">
+
+      <h6>A web app by John Staley and Jack Trumbull</h6>
     </div>
+
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script 
       src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js">

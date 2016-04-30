@@ -1,3 +1,28 @@
-body{
-	align : center;
+*{
+	background-color: cyan;
+	text-align: center;
+}
+
+input[type = "text"], textarea{
+	background-color: white;
+}
+
+button {
+	background-color: white;
+}
+
+table {
+	margin: 0px auto;
+	margin-top: 10px;
+	border: 1px solid black;
+	width: 90%;
+}
+
+th, td {
+	
+}
+
+h6 {
+	position: absolute;
+	bottom: 0;
 }

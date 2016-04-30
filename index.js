@@ -44,8 +44,7 @@
 		res.end();
 	});
 	
-	// This route only updates instrument. It should be made more general to 
-	// update anything.
+	//updates phone number
 	app.post("/updateContact", function(req, res, next) {
 		var conditions = {"firstName" : req.body.firstName};
 		var update = {$set : {"phoneNumber" : req.body.phoneNumber}};
